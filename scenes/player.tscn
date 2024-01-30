@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqehffghwgj2u"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_iekoc"]
+[ext_resource type="PackedScene" uid="uid://d0tsgwx1qskjn" path="res://scenes/player_move.tscn" id="4_n2rdy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mq4b"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_iekoc")
+
+[node name="Player_move" parent="." instance=ExtResource("4_n2rdy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4mq4b")

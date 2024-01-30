@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkwl278vcxu28"]
+
+[ext_resource type="PackedScene" uid="uid://bqehffghwgj2u" path="res://scenes/player.tscn" id="1_rclyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibn5m"]
+size = Vector2(333, 43)
+
+[node name="TrashGame" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" parent="." instance=ExtResource("1_rclyn")]
+position = Vector2(128, 184)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(144.5, 506.5)
+shape = SubResource("RectangleShape2D_ibn5m")
