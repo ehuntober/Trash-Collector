@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqehffghwgj2u"]
+[gd_scene load_steps=6 format=3 uid="uid://bqehffghwgj2u"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_iekoc"]
+[ext_resource type="Texture2D" uid="uid://y0y5fosba5if" path="res://sprites/player/Idle_1.png" id="2_328gk"]
+[ext_resource type="Texture2D" uid="uid://bboh82tuylnma" path="res://sprites/player/Idle_2.png" id="3_18jmp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m735a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_328gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_18jmp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k07ep"]
+size = Vector2(22, 46)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_iekoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m735a")
+animation = &"Idle"
+frame_progress = 0.0258029
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_k07ep")
