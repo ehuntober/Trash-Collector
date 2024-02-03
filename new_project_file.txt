@@ -1,2 +1,3 @@
 establishing a new project
 adding a new projectiles to the game 
+creation of the player character
