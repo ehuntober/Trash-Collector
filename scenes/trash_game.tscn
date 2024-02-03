@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkwl278vcxu28"]
 
 [ext_resource type="PackedScene" uid="uid://bqehffghwgj2u" path="res://scenes/player.tscn" id="1_rclyn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibn5m"]
-size = Vector2(333, 43)
+[ext_resource type="PackedScene" uid="uid://bv2d6om88gqth" path="res://scenes/Item.tscn" id="2_6gagk"]
 
 [node name="TrashGame" type="Node2D"]
 
@@ -18,10 +16,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("1_rclyn")]
+texture_filter = 1
 position = Vector2(128, 184)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Static_Item" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(222, 131)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(144.5, 506.5)
-shape = SubResource("RectangleShape2D_ibn5m")
+[node name="Static_Item2" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(49, 294)
+
+[node name="Static_Item3" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(225, 260)
+
+[node name="Static_Item4" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(46, 92)

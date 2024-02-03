@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv2d6om88gqth"]
+
+[ext_resource type="Texture2D" uid="uid://c0j8466icer30" path="res://sprites/player/Item/item.png" id="1_pcwav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j1dj"]
+size = Vector2(23, 27)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_pcwav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_0j1dj")

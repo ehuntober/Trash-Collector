@@ -10,8 +10,9 @@ func _physics_process(delta):
 	
 	if velocity.length() > 0.0:
 		#get_node("$Player_move").play_walk_animation()
+		anim.play("walk")
+	else:
 		anim.play("Idle")
-	#else:
 		#get_node("HappyBoo").play_idle_animation()
 		
 		
