@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkwl278vcxu28"]
+[gd_scene load_steps=4 format=3 uid="uid://bkwl278vcxu28"]
 
 [ext_resource type="PackedScene" uid="uid://bqehffghwgj2u" path="res://scenes/player.tscn" id="1_rclyn"]
+[ext_resource type="Script" path="res://scripts/trash_game.gd" id="1_yhptw"]
 [ext_resource type="PackedScene" uid="uid://bv2d6om88gqth" path="res://scenes/Item.tscn" id="2_6gagk"]
 
 [node name="TrashGame" type="Node2D"]
+script = ExtResource("1_yhptw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
@@ -30,3 +32,7 @@ position = Vector2(225, 260)
 
 [node name="Static_Item4" parent="." instance=ExtResource("2_6gagk")]
 position = Vector2(46, 92)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
