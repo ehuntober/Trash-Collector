@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci5pvggf871qf"]
+[gd_scene load_steps=6 format=3 uid="uid://ci5pvggf871qf"]
 
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_u6184"]
 [ext_resource type="Texture2D" uid="uid://dd7eapb72t5wv" path="res://sprites/enemy/enemy_walk222.png" id="1_x8hps"]
 [ext_resource type="Texture2D" uid="uid://d3ajgb8iwr66g" path="res://sprites/enemy/enemy_walk.png" id="2_hgv23"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gcufh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyfns"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -13,14 +14,23 @@ animations = [{
 "texture": ExtResource("2_hgv23")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 12.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om6gv"]
+size = Vector2(27, 31)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_u6184")
+
+[node name="enemy_walk" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_gcufh")
-animation = &"walk"
-frame_progress = 0.876606
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yyfns")
+animation = &"run"
+frame_progress = 0.796081
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_om6gv")

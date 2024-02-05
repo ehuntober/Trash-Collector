@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkwl278vcxu28"]
+[gd_scene load_steps=5 format=3 uid="uid://bkwl278vcxu28"]
 
 [ext_resource type="PackedScene" uid="uid://bqehffghwgj2u" path="res://scenes/player.tscn" id="1_rclyn"]
 [ext_resource type="Script" path="res://scripts/trash_game.gd" id="1_yhptw"]
 [ext_resource type="PackedScene" uid="uid://bv2d6om88gqth" path="res://scenes/Item.tscn" id="2_6gagk"]
+
+[sub_resource type="Curve2D" id="Curve2D_xx3m8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -372, -657, 0, 0, 0, 0, 416, -681, 0, 0, 0, 0, 364, 399, 0, 0, 0, 0, -380, 383, 0, 0, 0, 0, -384, -665)
+}
+point_count = 5
 
 [node name="TrashGame" type="Node2D"]
 script = ExtResource("1_yhptw")
@@ -19,20 +25,43 @@ grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("1_rclyn")]
 texture_filter = 1
-position = Vector2(128, 184)
+position = Vector2(261, 591)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+visible = false
+curve = SubResource("Curve2D_xx3m8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+visible = false
+position = Vector2(-372, -657)
+rotation = -0.0304474
 
 [node name="Static_Item" parent="." instance=ExtResource("2_6gagk")]
-position = Vector2(222, 131)
+position = Vector2(222, 71)
 
 [node name="Static_Item2" parent="." instance=ExtResource("2_6gagk")]
-position = Vector2(49, 294)
+position = Vector2(395, 121)
 
 [node name="Static_Item3" parent="." instance=ExtResource("2_6gagk")]
-position = Vector2(225, 260)
+position = Vector2(233, 331)
 
 [node name="Static_Item4" parent="." instance=ExtResource("2_6gagk")]
-position = Vector2(46, 92)
+position = Vector2(105, 589)
+
+[node name="Static_Item5" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(438, 390)
+
+[node name="Static_Item6" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(97, 157)
+
+[node name="Static_Item7" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(66, 312)
+
+[node name="Static_Item8" parent="." instance=ExtResource("2_6gagk")]
+position = Vector2(431, 260)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
